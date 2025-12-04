@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        pixel: ['"Press Start 2P"', "monospace"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +50,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Minecraft specific colors
+        grass: "hsl(var(--grass))",
+        dirt: "hsl(var(--dirt))",
+        stone: "hsl(var(--stone))",
+        diamond: "hsl(var(--diamond))",
+        gold: "hsl(var(--gold))",
+        emerald: "hsl(var(--emerald))",
+        obsidian: "hsl(var(--obsidian))",
+        bedrock: "hsl(var(--bedrock))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -65,25 +77,33 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px) rotate(-2deg)" },
+          "50%": { transform: "translateY(-20px) rotate(2deg)" },
+        },
+        "block-appear": {
+          "0%": { opacity: "0", transform: "scale(0) rotateY(-180deg)" },
+          "60%": { transform: "scale(1.1) rotateY(0deg)" },
+          "100%": { opacity: "1", transform: "scale(1) rotateY(0deg)" },
+        },
+        "pixel-pulse": {
+          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--diamond) / 0.7)" },
+          "50%": { boxShadow: "0 0 0 10px hsl(var(--diamond) / 0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 4s ease-in-out infinite",
+        "block-appear": "block-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+        "pixel-pulse": "pixel-pulse 2s ease-in-out infinite",
       },
     },
   },
