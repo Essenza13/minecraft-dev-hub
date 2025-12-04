@@ -2,95 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import "@fontsource/press-start-2p";
 
+/* Minecraft-themed Design System */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Minecraft Color Palette */
+    --background: 197 71% 73%; /* Sky blue */
+    --foreground: 0 0% 13%; /* Dark coal/obsidian */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 33 35% 35%; /* Dirt brown */
+    --card-foreground: 47 87% 94%; /* Light sand */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 33 35% 35%;
+    --popover-foreground: 47 87% 94%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 100 38% 44%; /* Grass green */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 33 35% 40%; /* Darker dirt */
+    --secondary-foreground: 47 87% 94%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 48%; /* Stone gray */
+    --muted-foreground: 0 0% 85%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 174 81% 61%; /* Diamond blue */
+    --accent-foreground: 0 0% 13%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%; /* Redstone */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 33 30% 25%;
+    --input: 33 30% 25%;
+    --ring: 100 38% 44%;
 
-    --radius: 0.5rem;
+    --radius: 0px; /* Blocky - no radius */
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom Minecraft colors */
+    --grass: 100 38% 44%;
+    --dirt: 33 35% 35%;
+    --stone: 0 0% 48%;
+    --diamond: 174 81% 61%;
+    --gold: 43 96% 56%;
+    --emerald: 140 61% 43%;
+    --obsidian: 260 20% 15%;
+    --bedrock: 0 0% 10%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 33 35% 30%;
+    --sidebar-foreground: 47 87% 94%;
+    --sidebar-primary: 100 38% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 174 81% 61%;
+    --sidebar-accent-foreground: 0 0% 13%;
+    --sidebar-border: 33 30% 25%;
+    --sidebar-ring: 100 38% 44%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 260 20% 10%; /* Obsidian dark */
+    --foreground: 47 87% 94%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 260 15% 15%;
+    --card-foreground: 47 87% 94%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 260 15% 15%;
+    --popover-foreground: 47 87% 94%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 100 38% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 260 15% 20%;
+    --secondary-foreground: 47 87% 94%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 260 10% 25%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 174 81% 55%;
+    --accent-foreground: 0 0% 13%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 260 15% 25%;
+    --input: 260 15% 25%;
+    --ring: 100 38% 50%;
   }
 }
 
@@ -101,5 +96,133 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Press Start 2P", monospace;
+    image-rendering: pixelated;
   }
+
+  /* Pixel-perfect borders */
+  .pixel-border {
+    box-shadow: 
+      inset -4px -4px 0px 0px hsl(var(--bedrock)),
+      inset 4px 4px 0px 0px hsl(var(--muted));
+  }
+
+  .pixel-border-accent {
+    box-shadow: 
+      inset -4px -4px 0px 0px hsl(var(--obsidian)),
+      inset 4px 4px 0px 0px hsl(var(--diamond) / 0.5);
+  }
+}
+
+/* Minecraft-style animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+@keyframes block-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotateY(-180deg);
+  }
+  60% {
+    transform: scale(1.1) rotateY(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+@keyframes pixel-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(var(--diamond) / 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px hsl(var(--diamond) / 0);
+  }
+}
+
+@keyframes grass-wave {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  25% {
+    transform: skewX(2deg);
+  }
+  75% {
+    transform: skewX(-2deg);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-block-appear {
+  animation: block-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-pixel-pulse {
+  animation: pixel-pulse 2s ease-in-out infinite;
+}
+
+.animate-grass-wave {
+  animation: grass-wave 3s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Minecraft block texture pattern */
+.block-pattern {
+  background-image: 
+    linear-gradient(90deg, transparent 50%, hsl(var(--bedrock) / 0.1) 50%),
+    linear-gradient(transparent 50%, hsl(var(--bedrock) / 0.1) 50%);
+  background-size: 8px 8px;
+}
+
+/* Grass top pattern */
+.grass-top {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--grass)) 0%,
+    hsl(var(--grass)) 30%,
+    hsl(var(--dirt)) 30%,
+    hsl(var(--dirt)) 100%
+  );
+}
+
+/* Stone pattern */
+.stone-pattern {
+  background: 
+    linear-gradient(135deg, hsl(var(--stone) / 0.8) 25%, transparent 25%),
+    linear-gradient(225deg, hsl(var(--stone) / 0.8) 25%, transparent 25%),
+    linear-gradient(45deg, hsl(var(--stone) / 0.8) 25%, transparent 25%),
+    linear-gradient(315deg, hsl(var(--stone) / 0.6) 25%, hsl(var(--muted)) 25%);
+  background-size: 16px 16px;
+  background-position: 8px 0, 8px 0, 0 0, 0 0;
 }
